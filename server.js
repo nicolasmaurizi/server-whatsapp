@@ -28,6 +28,25 @@ client.on('ready', () => {
 
 client.initialize();
 
+// Endpoint para enviar un mensaje
+app.post('/send', async (req, res) => {
+    const { number, message } = req.body;
+
+    if (!number || !message) {
+        return res.status(400).json({ error: 'Faltan parámetros: number, message' });
+    }
+
+    try {
+        // WhatsApp requiere el formato internacional sin "+" y con @c.us
+        const chatId = number.includes('@c.us') ? number : `${number}@c.us`;
+        await client.sendMessage(chatId, message);
+        res.json({ status: 'Mensaje enviado' });
+    } catch (err) {
+        console.error('❌ Error enviando mensaje:', err);
+        res.status(500).json({ error: 'No se pudo enviar el mensaje' });
+    }
+});
+
 // Endpoint para mostrar QR en navegador
 app.get('/qr', (req, res) => {
     if (!qrCodeImage) {
