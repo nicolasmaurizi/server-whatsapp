@@ -1,4 +1,5 @@
-🚀 Proyecto rápido: Enviar y recibir mensajes de WhatsApp desde Node.js
+
+## 🚀 Proyecto rápido: Enviar y recibir mensajes de WhatsApp desde Node.js 
 
 Estos días estuve probando whatsapp-web.js integrado con Express para crear una API sencilla que permite:
 
@@ -29,5 +30,11 @@ POST /send
 Cliente autenticado con LocalAuth para no tener que escanear cada vez.
 
 ⚠️ Nota importante: No usar para spam masivo, WhatsApp puede bloquear cuentas por automatización abusiva.
+
+## ¿Como comenzar?
+
+- git clone (copia este repositorio a tu PC)
+- npm i (Actualiza los paquetes necesario)
+- npm run start (Ejecuta este proyecto)
 
 💬 Creo que este tipo de integraciones pueden ser un gran paso para soluciones de atención al cliente, seguimiento de pedidos y bots de soporte.
